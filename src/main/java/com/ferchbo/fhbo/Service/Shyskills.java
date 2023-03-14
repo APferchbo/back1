@@ -1,6 +1,6 @@
 package com.ferchbo.fhbo.Service;
 
-import com.ferchbo.fhbo.Entity.hyskills;
+import com.ferchbo.fhbo.Entity.Hyskills;
 import com.ferchbo.fhbo.Repository.Rhyskills;
 import java.util.List;
 import java.util.Optional;
@@ -16,16 +16,16 @@ public class Shyskills {
 
     Rhyskills rhys;
 
-    public List<hyskills> List() {
+    public List<Hyskills> List() {
         return rhys.findAll();
     }
-    public Optional<hyskills> getOne(int id) {
+    public Optional<Hyskills> getOne(int id) {
         return rhys.findById(id);
     }
-    public Optional<hyskills> getByNomS(String nomS) {
-        return rhys.findByNomS(nomS);
+    public Optional<Hyskills> getByNomSH(String nomSH) {
+        return rhys.findByNomSH(nomSH);
     }
-    public void save(hyskills skill){
+    public void save(Hyskills skill){
         rhys.save(skill);
     }
     public void delete(int id){
@@ -34,7 +34,7 @@ public class Shyskills {
     public boolean existsById(int id){
         return rhys.existsById(id);
     }
-    public boolean existsByNomS(String nomS){
-        return rhys.existsByNomS(nomS);
+    public boolean existsByNomSH(String nomSH){
+        return rhys.existsByNomSH(nomSH);
     } 
 }

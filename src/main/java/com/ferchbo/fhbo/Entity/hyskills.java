@@ -11,24 +11,28 @@ import javax.persistence.Id;
 
 
 @Entity
-public class hyskills {
+public class Hyskills {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    private String nomS;
-    private int porS;
+    private String nomSH;
+    private int porSH;
+    private String imgSH;
     
-    //constructor
-    
-    public hyskills() {
+    //Contructores
+
+    public Hyskills() {
     }
 
-    public hyskills(String nomS, int porS) {
-        this.nomS = nomS;
-        this.porS = porS;
+    public Hyskills(String nomSH, int porSH, String imgSH) {
+        this.nomSH = nomSH;
+        this.porSH = porSH;
+        this.imgSH = imgSH;
     }
-    
-    //getters and setters
+
+   
+
+    //Getters and setters
 
     public int getId() {
         return id;
@@ -38,21 +42,30 @@ public class hyskills {
         this.id = id;
     }
 
-    public String getNomS() {
-        return nomS;
+    public String getNomSH() {
+        return nomSH;
     }
 
-    public void setNomS(String nomS) {
-        this.nomS = nomS;
+    public void setNomSH(String nomSH) {
+        this.nomSH = nomSH;
     }
 
-    public int getPorS() {
-        return porS;
+    public int getPorSH() {
+        return porSH;
     }
 
-    public void setPorS(int porS) {
-        this.porS = porS;
+    public void setPorSH(int porSH) {
+        this.porSH = porSH;
     }
+
+    public String getImgSH() {
+        return imgSH;
+    }
+
+    public void setImgSH(String imgSH) {
+        this.imgSH = imgSH;
+    }
+    
     
 }
 

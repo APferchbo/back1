@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ferchbo.fhbo.Dto;
 
 import javax.validation.constraints.NotBlank;
@@ -11,38 +8,47 @@ import javax.validation.constraints.NotBlank;
 public class Dtohyskills {
     
     @NotBlank
-    private String nomS;
+    private String nomSH;
     @NotBlank
-    private int porS;
+    private int porSH;
+    @NotBlank
+    private String imgSH;
     
-    //constructor
+    //Constructor
 
     public Dtohyskills() {
     }
 
-    public Dtohyskills(String nomS, int porS) {
-        this.nomS = nomS;
-        this.porS = porS;
-    }
-    
-    //getters and setters
-
-    public String getNomS() {
-        return nomS;
+    public Dtohyskills(String nomSH, int porSH, String imgSH) {
+        this.nomSH = nomSH;
+        this.porSH = porSH;
+        this.imgSH = imgSH;
     }
 
-    public void setNomS(String nomS) {
-        this.nomS = nomS;
+    //Getters and setters
+
+    public String getNomSH() {
+        return nomSH;
     }
 
-    public int getPorS() {
-        return porS;
+    public void setNomSH(String nomSH) {
+        this.nomSH = nomSH;
     }
 
-    public void setPorS(int porS) {
-        this.porS = porS;
+    public int getPorSH() {
+        return porSH;
     }
-    
-    
+
+    public void setPorSH(int porSH) {
+        this.porSH = porSH;
+    }
+
+    public String getImgSH() {
+        return imgSH;
+    }
+
+    public void setImgSH(String imgSH) {
+        this.imgSH = imgSH;
+    }
     
 }

@@ -4,10 +4,10 @@
  */
 package com.ferchbo.fhbo.Controller;
 
-import com.ferchbo.fhbo.Dto.Dtohyskills;
-import com.ferchbo.fhbo.Entity.Hyskills;
+import com.ferchbo.fhbo.Dto.Dtosyskills;
+import com.ferchbo.fhbo.Entity.Syskills;
 import com.ferchbo.fhbo.Security.Controller.Mensaje;
-import com.ferchbo.fhbo.Service.Shyskills;
+import com.ferchbo.fhbo.Service.Ssyskills;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,81 +23,80 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
-@RequestMapping("/hyskills")
+@RequestMapping("/Syskills")
 @CrossOrigin(origins = "https://fhbofrontend.web.app")
 //@CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin(origins = "http://localhost:4200")
-public class Chyskills {
+public class Csyskills {
 
     @Autowired
-    Shyskills shys;
+    Ssyskills ssys;
 
     @GetMapping("/lista")
-    public ResponseEntity<List<Hyskills>> list() {
-        List<Hyskills> list = shys.List();
+    public ResponseEntity<List<Syskills>> list() {
+        List<Syskills> list = ssys.List();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Hyskills> getById(@PathVariable("id") int id) {
-        if (!shys.existsById(id)) {
+    public ResponseEntity<Syskills> getById(@PathVariable("id") int id) {
+        if (!ssys.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
         }
-        Hyskills hyskills = shys.getOne(id).get();
-        return new ResponseEntity(hyskills, HttpStatus.OK);
+        Syskills syskills = ssys.getOne(id).get();
+        return new ResponseEntity(syskills, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         //Validamos si existe el ID
-        if (!shys.existsById(id)) {
+        if (!ssys.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
 
-        shys.delete(id);
+        ssys.delete(id);
         return new ResponseEntity(new Mensaje("Habilidad Eliminada"), HttpStatus.OK);
 
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody Dtohyskills dtohys) {
+    public ResponseEntity<?> create(@RequestBody Dtosyskills dtosys) {
 
-        if (StringUtils.isBlank(dtohys.getNomSH())) {
+        if (StringUtils.isBlank(dtosys.getNomSS())) {
             return new ResponseEntity(new Mensaje("El nombre de Habilidad es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 
-        if (shys.existsByNomSH(dtohys.getNomSH())) {
+        if (ssys.existsByNomSS(dtosys.getNomSS())) {
             return new ResponseEntity(new Mensaje("Esa Habilidad existe"), HttpStatus.BAD_REQUEST);
         }
 
-        Hyskills hyskills = new Hyskills(dtohys.getNomSH(), dtohys.getPorSH(), dtohys.getImgSH());
-        shys.save(hyskills);
+        Syskills syskills = new Syskills(dtosys.getNomSS(), dtosys.getPorSS(), dtosys.getImgSS());
+        ssys.save(syskills);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
 
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Dtohyskills dtohys) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Dtosyskills dtosys) {
         //Validamos si existe el ID
-        if (!shys.existsById(id)) {
+        if (!ssys.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
         //Compara nombre de Educacion
-        if (shys.existsByNomSH(dtohys.getNomSH()) && shys.getByNomSH(dtohys.getNomSH()).get().getId() != id) {
+        if (ssys.existsByNomSS(dtosys.getNomSS()) && ssys.getByNomSS(dtosys.getNomSS()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("Esa Habilidad ya existe"), HttpStatus.BAD_REQUEST);
         }
         //No puede estar vacio
-        if (StringUtils.isBlank(dtohys.getNomSH())) {
+        if (StringUtils.isBlank(dtosys.getNomSS())) {
             return new ResponseEntity(new Mensaje("El nombre de Habilidad es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 
-        Hyskills hyskills = shys.getOne(id).get();
-        hyskills.setNomSH(dtohys.getNomSH());
-        hyskills.setPorSH(dtohys.getPorSH());
-        shys.save(hyskills);
+        Syskills syskills = ssys.getOne(id).get();
+        syskills.setNomSS(dtosys.getNomSS());
+        syskills.setPorSS(dtosys.getPorSS());
+        ssys.save(syskills);
         return new ResponseEntity(new Mensaje("Habilidades actualizadas"), HttpStatus.OK);
     }
 
