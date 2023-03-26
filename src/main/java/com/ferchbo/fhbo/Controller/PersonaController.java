@@ -20,8 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/persona")
-//@CrossOrigin(origins = "https://fhbofrontend.web.app ")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://apfer-97a3a.web.app")
 public class PersonaController {
 
     @Autowired
