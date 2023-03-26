@@ -33,7 +33,9 @@ public class JwtProvider {
                 .compact();
     }
     public String getNomUsuFromToken(String token){
-        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parser().setSigningKey(secret)
+                .parseClaimsJws(token)
+                .getBody().getSubject();
     }
     public boolean validateToken(String token){
         try{

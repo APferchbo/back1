@@ -1,4 +1,3 @@
-
 package com.ferchbo.fhbo.Security.Controller;
 
 import com.ferchbo.fhbo.Security.Dto.JwtDto;
@@ -29,14 +28,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
-
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://fhbofrontend.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://fhbofrontend.web.app ")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;

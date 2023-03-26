@@ -17,22 +17,22 @@ public class Hyskills {
     private int id;
     private String nomSH;
     private int porSH;
-    private String imgSH;
+    private String img;
     
     //Contructores
+
+    
+
+    //Getters and setters
 
     public Hyskills() {
     }
 
-    public Hyskills(String nomSH, int porSH, String imgSH) {
+    public Hyskills(String nomSH, int porSH, String img) {
         this.nomSH = nomSH;
         this.porSH = porSH;
-        this.imgSH = imgSH;
+        this.img = img;
     }
-
-   
-
-    //Getters and setters
 
     public int getId() {
         return id;
@@ -58,14 +58,15 @@ public class Hyskills {
         this.porSH = porSH;
     }
 
-    public String getImgSH() {
-        return imgSH;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgSH(String imgSH) {
-        this.imgSH = imgSH;
+    public void setImg(String img) {
+        this.img = img;
     }
-    
+
+   
     
 }
 

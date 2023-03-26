@@ -26,9 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hyskills")
-@CrossOrigin(origins = "https://fhbofrontend.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://fhbofrontend.web.app ")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Chyskills {
 
     @Autowired
@@ -72,7 +71,7 @@ public class Chyskills {
             return new ResponseEntity(new Mensaje("Esa Habilidad existe"), HttpStatus.BAD_REQUEST);
         }
 
-        Hyskills hyskills = new Hyskills(dtohys.getNomSH(), dtohys.getPorSH(), dtohys.getImgSH());
+        Hyskills hyskills = new Hyskills(dtohys.getNomSH(), dtohys.getPorSH(), dtohys.getImg());
         shys.save(hyskills);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -97,6 +96,7 @@ public class Chyskills {
         Hyskills hyskills = shys.getOne(id).get();
         hyskills.setNomSH(dtohys.getNomSH());
         hyskills.setPorSH(dtohys.getPorSH());
+        hyskills.setImg(dtohys.getImg());
         shys.save(hyskills);
         return new ResponseEntity(new Mensaje("Habilidades actualizadas"), HttpStatus.OK);
     }

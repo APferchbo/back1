@@ -25,9 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Syskills")
-@CrossOrigin(origins = "https://fhbofrontend.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://fhbofrontend.web.app ")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Csyskills {
 
     @Autowired

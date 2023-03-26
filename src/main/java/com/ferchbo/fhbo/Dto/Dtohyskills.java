@@ -12,17 +12,17 @@ public class Dtohyskills {
     @NotBlank
     private int porSH;
     @NotBlank
-    private String imgSH;
+    private String img;
     
     //Constructor
 
     public Dtohyskills() {
     }
 
-    public Dtohyskills(String nomSH, int porSH, String imgSH) {
+    public Dtohyskills(String nomSH, int porSH, String img) {
         this.nomSH = nomSH;
         this.porSH = porSH;
-        this.imgSH = imgSH;
+        this.img = img;
     }
 
     //Getters and setters
@@ -43,12 +43,12 @@ public class Dtohyskills {
         this.porSH = porSH;
     }
 
-    public String getImgSH() {
-        return imgSH;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgSH(String imgSH) {
-        this.imgSH = imgSH;
+    public void setImg(String img) {
+        this.img = img;
     }
     
 }
